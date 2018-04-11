@@ -1,0 +1,14 @@
+<section class="menu">
+  <div class="movie-list">
+    <div class="movie-group">
+      <h2>Movie list:</h2>
+      <ul class="movies">
+      <li *ngFor="let movie of movies" 
+            [class.selected]="movie === selectedMovie" (click)="onSelect(movie)" >
+       <span >{{movie.title}} </span>{{movie.release_date}} 
+      </li>
+      
+      </ul>
+    </div>
+  </div>
+</section> 
