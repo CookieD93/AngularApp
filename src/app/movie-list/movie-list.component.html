@@ -1,14 +1,14 @@
 <section class="menu">
   <div class="movie-list">
     <div class="movie-group">
-      <h2>Movie list:</h2>
-      <ul class="movies">
-      <li *ngFor="let movie of movies" 
-            [class.selected]="movie === selectedMovie" (click)="onSelect(movie)" >
-       <span >{{movie.title}} </span>{{movie.release_date}} 
-      </li>
-      
-      </ul>
+      <h2>Popular movies:</h2>
+       <div *ngFor="let movie of movies" class="col-md-3 filmkasse"
+         (click)="onSelect(movie)">
+         <img class="img-responsive" src="{{movie.poster_path}}" alt="">
+        <h3 >{{movie.title}} </h3>
+        <p>{{movie.release_date}}</p>
+        
+      </div>            
     </div>
   </div>
 </section> 

@@ -9,6 +9,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { RoutingModule } from './routing/routing.module';
 import { TmdbService } from './tmdb.service';
 import { LoginComponent } from './login/login.component';
+import { GenreListComponent } from './genre-list/genre-list.component';
 
  
 @NgModule({
@@ -17,7 +18,8 @@ import { LoginComponent } from './login/login.component';
     TmdbserviceHandlerComponent,
     MovieListComponent,
     MovieDetailComponent,
-    LoginComponent
+    LoginComponent,
+    GenreListComponent
   ],
   imports: [
     BrowserModule,

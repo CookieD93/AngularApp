@@ -10,6 +10,7 @@ export interface Movie {
     original_language: string
     original_title: string
     genre_ids : number[]
+    genres : string[]
     backdrop_path: string
     adult: boolean
     overview: string

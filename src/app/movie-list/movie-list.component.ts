@@ -20,6 +20,6 @@ export class MovieListComponent implements OnInit {
   ngOnInit() { this.Service.getMovies().subscribe(response => this.movies = response);
   }
   public onSelect(movie:Movie) {
-    this.router.navigate(['/movie-detail', movie.title])
+    this.router.navigate(['/movie-detail', movie.id])
   }
 } 

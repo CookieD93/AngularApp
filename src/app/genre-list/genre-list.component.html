@@ -1,0 +1,15 @@
+<section class="menu">
+  <div class="movie-list">
+    <div class="movie-group">
+      <button class='btn btn-default' (click)="backButton()">Back</button>
+      <h2>Movies in {{chosenGenre}}</h2>
+      <div *ngFor="let movie of movies" class="col-md-3 filmkasse" [class.selected]="movie === selectedMovie" (click)="onSelect(movie)">
+        <img class="img-responsive" src="{{movie.poster_path}}" alt="">
+        <h3>{{movie.title}} </h3>
+        <p>{{movie.release_date}}</p>
+
+      </div>
+      <button class='btn btn-default' (click)="backButton()">Back</button> 
+    </div>
+  </div>
+</section>
