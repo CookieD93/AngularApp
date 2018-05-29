@@ -1,2 +1,12 @@
 
-<img class="img-responsive img-rounded poster" src="\assets\Images\image-not-found.jpg">
+<!--<img class="img-responsive img-rounded poster" src="\assets\Images\image-not-found.jpg">-->
+<span *ngIf="!isAuthed">
+<input [value]="username" (input)="username = $event.target.value" placeholder="Username">
+<input type="password" [value]="password" (input)="password = $event.target.value" placeholder="Password">
+<button (click)="Login()">Login</button>
+</span>
+<span *ngIf="isAuthed">
+    <button (click)="Logout()">Logout</button>
+</span>
+<span>test: {{test}}</span><br>
+<button (click)="backupPayload()">backup</button>

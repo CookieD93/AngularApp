@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http'
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
 import { TmdbserviceHandlerComponent } from './tmdbservice-handler/tmdbservice-handler.component';
@@ -10,6 +12,10 @@ import { RoutingModule } from './routing/routing.module';
 import { TmdbService } from './tmdb.service';
 import { LoginComponent } from './login/login.component';
 import { GenreListComponent } from './genre-list/genre-list.component';
+import { AuthServiceService } from './Auth/auth-service.service';
+import { LockedPageComponent } from './locked-page/locked-page.component';
+import { AuthGuardService } from './AuthGuard/auth-guard.service';
+
 
  
 @NgModule({
@@ -19,14 +25,16 @@ import { GenreListComponent } from './genre-list/genre-list.component';
     MovieListComponent,
     MovieDetailComponent,
     LoginComponent,
-    GenreListComponent
+    GenreListComponent,
+    LockedPageComponent,
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     RoutingModule
   ],
-  providers:[TmdbService],
+  providers:[TmdbService,AuthServiceService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
