@@ -22,17 +22,20 @@ export class AuthServiceService {
   public isAuthenticated(): boolean{
     this.encodedpayload = window.localStorage.getItem('tokenPayload')
     this.backupPayload = window.localStorage.getItem('BackupPayload')
-    if(this.encodedpayload!==null){
-          // this.payload = JSON.parse(window.atob(this.encodedpayload.replace('-','+').replace('_','/')))
-      }   
-
     if(this.backupPayload!==null){
       // Use the version below if getting DomException, Error is caused by window.atop() can't handle the utf8 properly need to fix sometime
-      this.payload = JSON.parse(window.atob(this.backupPayload.replace('-','+').replace('_','/')))
+      this.backupPayload.replace('-','+').replace('_','/')
+      this.payload = JSON.parse(window.atob(this.backupPayload))
       }
-    
+      else{if(this.encodedpayload!==null){
+        this.encodedpayload.replace('-','+').replace('_','/')
+        this.payload = JSON.parse(window.atob(this.encodedpayload))
+    }  }
+       
+    //Need to convert "this.payload.exp" to a date (but I need to change the format the date is written in at the webservice).
+    // new Date(); don't take "DD/MM/YYYY" format. Needs to be "MM/DD/YYYY"
     if(this.encodedpayload!==null ||this.backupPayload!==null){
-          return this.payload.exp>new Date().toTimeString()
+          return new Date(this.payload.exp)>new Date()
     }
     return false
 

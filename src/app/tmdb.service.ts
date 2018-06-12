@@ -19,7 +19,7 @@ export class TmdbService {
 
   //https://api.themoviedb.org/4/list/1?api_key=8dcf8e2c3fb3626f184505f02cd776b3
   public getMovies() : Observable<Movie[]> {
-    return this.http.get("https://api.themoviedb.org/3/discover/movie?api_key=8dcf8e2c3fb3626f184505f02cd776b3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=145")
+    return this.http.get("https://api.themoviedb.org/3/discover/movie?api_key=8dcf8e2c3fb3626f184505f02cd776b3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false")
     .map(response => {
       const data : IMovieData = response.json();
       return data.results.filter(movie => movie.poster_path !== null).map(movie => 

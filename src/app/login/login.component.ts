@@ -17,9 +17,12 @@ export class LoginComponent implements OnInit {
   public username : string
   private password : string
   
-  private test:string
+  private test
   private isAuthed: boolean
   
+  // // private payload : Payload
+  // private backupPayloads :string
+  // private timestring : string
 
   constructor(private http:HttpClient,
               private router:Router,
@@ -36,7 +39,20 @@ export class LoginComponent implements OnInit {
         if(this.isAuthed){
           this.test = "already logged in"
           }
-    
+
+    // this.backupPayloads = window.localStorage.getItem('token')
+    // this.test = this. backupPayloads
+    // this.backupPayloads.replace('-','+').replace('_','/')
+    //       this.test = JSON.parse(window.atob(this.backupPayloads))
+    // if(this.backupPayload!==null){
+    //   // Use the version below if getting DomException, Error is caused by window.atop() can't handle the utf8 properly need to fix sometime
+    //   this.payload = JSON.parse(window.atob(this.backupPayloads.replace('-','+').replace('_','/')))
+    //   }
+      //28-05-2018 17:21:40
+      //this.payload.exp
+    //  this.test = new Date("05-28-2018 17:21:40") //> new Date()
+    //  this.timestring = new Date();
+
   }
  
   
@@ -46,11 +62,11 @@ export class LoginComponent implements OnInit {
    */
   public Login() {
     this.auth.Login(this.username,this.password)
-   window.alert("logged in")
    this.router.navigate(['/movie-list'])
   }
+  //gemmer en backup payload som er gyldig indtil 19. juni.
   public backupPayload(){
-    window.localStorage.setItem('BackupPayload',"eyJpc3MiOiAiTG9jYWwiLCJhdWQiOiAiTG9jYWwiLCJleHAiOiAiMjgtMDUtMjAxOCAxNzoyMTo0MCIsIkNJRCI6ICJkYW5pZWwifQ")
+    window.localStorage.setItem('BackupPayload',"eyJpc3MiOiJMb2NhbCIsImF1ZCI6IkxvY2FsIiwiZXhwIjoianVuLiAxOSwgMjAxOCAxNzo1MzoxOCIsIkNJRCI6ImRhbmllbCJ9")
   }
   public Logout(){
     this.auth.Logout()
